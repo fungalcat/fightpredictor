@@ -4,7 +4,7 @@ import time
 from random import randint
 import csv
 #events page
-source = requests.get('http://www.fightmetric.com/statistics/events/completed').text
+source = requests.get('http://www.fightmetric.com/statistics/events/completed?page=2').text
 
 soup = BeautifulSoup(source, 'lxml')
 
@@ -29,7 +29,7 @@ for link in links:
 		stats.pop(9)
 		print(stats)
 		writer.writerow(stats)
-		time.sleep(randint(5,15))
+		time.sleep(randint(1,5))
 
 f.close()
 
